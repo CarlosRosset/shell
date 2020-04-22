@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt-get install dialog
+
 #----------------------------------------------------------
 function apresentacao() {
     tms=$1
