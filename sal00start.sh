@@ -38,6 +38,15 @@ function apresentacao() {
 #----------------------------------------------------------
 
 #----------------------------------------------------------
+function excluirAgendamentosRotasUsuariosERP(){
+    curl --location --request DELETE 'https://serquip-al.firebaseio.com/app/agendamento/al/.json'
+    sleep 2
+    curl --location --request DELETE 'https://serquip-al.firebaseio.com/erp/al/users/.json'
+    sleep 2
+}
+#----------------------------------------------------------
+
+#----------------------------------------------------------
 function inserirUsuariosERP(){
     curl --location --request PATCH 'https://serquip-al.firebaseio.com/erp/al/users/.json' \
     --header 'Content-Type: application/json' \
@@ -161,11 +170,13 @@ function inserirUsuariosERP(){
         }       
 
     }'
-
+    
+    sleep 2
 }
 #----------------------------------------------------------
 
 
 verificaPacoteDialog
 apresentacao 2
+excluirAgendamentosRotasUsuariosERP
 inserirUsuariosERP
