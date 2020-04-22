@@ -175,8 +175,32 @@ function inserirUsuariosERP(){
 }
 #----------------------------------------------------------
 
+#----------------------------------------------------------
+function infoUsuariosCriados(){
+    clear
+    msg =""
+    msg+="╔══════════════════════════════════════════════════════════╗ \n"
+    msg+="║                   Usuarios Criados                       ║ \n"
+    msg+="╠══════════════════════════════════════════════════════════╣ \n"
+    msg+="║                                                          ║ \n"
+    msg+="║        1. condutor1@serquip.app => 11111111111           ║ \n"
+    msg+="║        2. condutor2@serquip.app => 22222222222           ║ \n"
+    msg+="║        3. condutor3@serquip.app => 33333333333           ║ \n"
+    msg+="║        4. cliente1@serquip.app => 11111111111            ║ \n"
+    msg+="║        5. cliente2@serquip.app => 22222222222            ║ \n"
+    msg+="║        6. cliente3@serquip.app => 33333333333            ║ \n"
+    msg+="║        7. administrador@serquip.app => 11111111111       ║ \n"
+    msg+="║        8. root@serquip.app => 11111111111                ║ \n"
+    msg+="║                                                          ║ \n"    
+    msg+="╚══════════════════════════════════════════════════════════╝ \n"
+    dialog --sleep ${tms} --backtitle "Carlos Rossset - carlosrosset@gmail.com" --infobox "${msg}" 12 64
+
+}
+#----------------------------------------------------------
+
 
 verificaPacoteDialog
 apresentacao 2
 excluirAgendamentosRotasUsuariosERP
 inserirUsuariosERP
+infoUsuariosCriados
