@@ -1,6 +1,20 @@
 #!/bin/bash
 
-sudo apt-get install dialog
+#----------------------------------------------------------
+function verificaPacoteDialog() {
+    # sudo apt-get install dialog
+    pacote=$(dpkg --get-selections | grep "dialog" )
+    sleep 2
+    if [ -n "$pacote" ] ;
+    then echo
+         echo "Pacote $nome ja instalado"
+    else echo
+         echo "Pacote $nome Necessario-> Nao instalado"
+         echo "Instalando Automaticamente Pacote Dialog..."
+         sudo apt-get install $nome
+    fi    
+}
+#----------------------------------------------------------
 
 #----------------------------------------------------------
 function apresentacao() {
@@ -23,4 +37,5 @@ function apresentacao() {
 }
 #----------------------------------------------------------
 
+verificaPacoteDialog
 apresentacao 5
