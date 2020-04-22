@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo ls -a
+
 #----------------------------------------------------------
 function verificaPacoteDialog() {
     # sudo apt-get install dialog
