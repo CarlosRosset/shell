@@ -37,6 +37,135 @@ function apresentacao() {
 }
 #----------------------------------------------------------
 
-verificaPacoteDialog
-apresentacao 5
+#----------------------------------------------------------
+function inserirUsuariosERP(){
+    curl --location --request PATCH 'https://serquip-al.firebaseio.com/erp/al/users/.json' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+        "UID_ERP_AL_CO01": {
+            "cpf": 11111111111,
+            "email": "condutor1@serquip.app",
+            "fotoBase64": "hex",
+            "funcao": "Condutor",
+            "genero": "Masculino",
+            "lastUpdate": 146123123694046,
+            "nome": "Condutor 01",
+            "protratamento": "Sr",
+            "perfil": [
+                "coletor"
+            ]
+        },
 
+        "UID_ERP_AL_CO02": {
+            "cpf": 22222222222,
+            "email": "condutor2@serquip.app",
+            "fotoBase64": "hex",
+            "funcao": "Condutor",
+            "genero": "Masculino",
+            "lastUpdate": 146123123694046,
+            "nome": "Condutor 02",
+            "protratamento": "Sr",
+            "perfil": [
+                "coletor"
+            ]
+        },
+
+        "UID_ERP_AL_CO03": {
+            "cpf": 33333333333,
+            "email": "condutor3@serquip.app",
+            "fotoBase64": "hex",
+            "funcao": "Condutor",
+            "genero": "Masculino",
+            "lastUpdate": 146123123694046,
+            "nome": "Condutor 03",
+            "protratamento": "Sr",
+            "perfil": [
+                "coletor"
+            ]
+        },
+
+        "UID_ERP_AL_CL01": {
+            "cpf": 11111111111,
+            "email": "cliente1@serquip.app",
+            "fotoBase64": "hex",
+            "funcao": "Cliente",
+            "genero": "Masculino",
+            "lastUpdate": 146123123694046,
+            "nome": "Cliente 01",
+            "protratamento": "Sr",
+            "perfil": [
+                "cliente"
+            ]
+        },
+
+        "UID_ERP_AL_CL02": {
+            "cpf": 22222222222,
+            "email": "cliente2@serquip.app",
+            "fotoBase64": "hex",
+            "funcao": "Cliente",
+            "genero": "Masculino",
+            "lastUpdate": 146123123694046,
+            "nome": "Cliente 02",
+            "protratamento": "Sr",
+            "perfil": [
+                "cliente"
+            ]
+        },
+
+        "UID_ERP_AL_CL03": {
+            "cpf": 33333333333,
+            "email": "cliente3@serquip.app",
+            "fotoBase64": "hex",
+            "funcao": "Cliente",
+            "genero": "Masculino",
+            "lastUpdate": 146123123694046,
+            "nome": "Cliente 03",
+            "protratamento": "Sr",
+            "perfil": [
+                "cliente"
+            ]
+        },
+
+        "UID_ERP_AL_ADM01": {
+            "cpf": 11111111111,
+            "email": "administrador@serquip.app",
+            "fotoBase64": "hex",
+            "funcao": "Administrador",
+            "genero": "Masculino",
+            "lastUpdate": 146123123694046,
+            "nome": "Administrador 01",
+            "protratamento": "Sr",
+            "perfil": [
+                "administrador",
+                "cliente",
+                "coletor"
+            ]
+        },    
+
+        "UID_ERP_AL_RO01": {
+            "cpf": 11111111111,
+            "email": "root@serquip.app",
+            "fotoBase64": "hex",
+            "funcao": "Root",
+            "genero": "Masculino",
+            "lastUpdate": 146123123694046,
+            "nome": "Root 01",
+            "protratamento": "Sr",
+            "perfil": [
+                "administrador",
+                "cliente",
+                "coletor",
+                "root",
+                "vendedor"
+            ]
+        }       
+
+    }'
+
+}
+#----------------------------------------------------------
+
+
+verificaPacoteDialog
+apresentacao 2
+inserirUsuariosERP
