@@ -39,16 +39,16 @@ function apresentacao() {
 
 #----------------------------------------------------------
 function excluirAgendamentosRotasUsuariosERP(){
-    curl --location --request DELETE 'https://serquip-al.firebaseio.com/app/agendamento/al/.json'
+    rstDel1=$( curl --location --request DELETE 'https://serquip-al.firebaseio.com/app/agendamento/al/.json' )
     sleep 3
-    curl --location --request DELETE 'https://serquip-al.firebaseio.com/erp/al/users/.json'
+    rstDel2=$( curl --location --request DELETE 'https://serquip-al.firebaseio.com/erp/al/users/.json' )
     sleep 3
 }
 #----------------------------------------------------------
 
 #----------------------------------------------------------
 function inserirUsuariosERP(){
-    curl --location --request PATCH 'https://serquip-al.firebaseio.com/erp/al/users/.json' \
+    rstPost1=$( curl --location --request PATCH 'https://serquip-al.firebaseio.com/erp/al/users/.json' \
     --header 'Content-Type: application/json' \
     --data-raw '{
         "UID_ERP_AL_CO01": {
@@ -169,7 +169,7 @@ function inserirUsuariosERP(){
             ]
         }       
 
-    }'
+    }' )
     
     sleep 4
 }
