@@ -199,8 +199,8 @@ function infoUsuariosCriados(){
 #----------------------------------------------------------
 
 
-verificaPacoteDialog
-apresentacao 2
-excluirAgendamentosRotasUsuariosERP
-inserirUsuariosERP
+# verificaPacoteDialog
+# apresentacao 2
+# excluirAgendamentosRotasUsuariosERP
+# inserirUsuariosERP
 infoUsuariosCriados
