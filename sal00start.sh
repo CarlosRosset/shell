@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sudo ls -a
-
 #----------------------------------------------------------
 function verificaPacoteDialog() {
     # sudo apt-get install dialog
@@ -41,3 +39,6 @@ function apresentacao() {
 
 verificaPacoteDialog
 apresentacao 5
+
+echo "Eu te amo Dany"
+
