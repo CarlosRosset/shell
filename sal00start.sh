@@ -40,9 +40,9 @@ function apresentacao() {
 #----------------------------------------------------------
 function excluirAgendamentosRotasUsuariosERP(){
     curl --location --request DELETE 'https://serquip-al.firebaseio.com/app/agendamento/al/.json'
-    sleep 2
+    sleep 3
     curl --location --request DELETE 'https://serquip-al.firebaseio.com/erp/al/users/.json'
-    sleep 2
+    sleep 3
 }
 #----------------------------------------------------------
 
@@ -171,7 +171,7 @@ function inserirUsuariosERP(){
 
     }'
     
-    sleep 2
+    sleep 4
 }
 #----------------------------------------------------------
 
