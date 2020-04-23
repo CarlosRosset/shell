@@ -2,19 +2,43 @@
 
 #----------------------------------------------------------
 function verificaPacoteDialog() {
-    # sudo apt-get install dialog
-    pacote=$(dpkg --get-selections | grep "dialog" )
-    sleep 2
-    if [ -n "$pacote" ] ;
-    then echo
-         echo "Pacote $nome ja instalado"
-    else echo
-         echo "Pacote $nome Necessario-> Nao instalado"
-         echo "Instalando Automaticamente Pacote Dialog..."
-         sudo apt-get install $nome
-    fi    
+    sudo apt-get install dialog
+    sudo apt-get install jq
+    # pacote=$(dpkg --get-selections | grep "dialog" )
+    # sleep 2
+    # if [ -n "$pacote" ] ;
+    # then echo
+    #      echo "Pacote $nome ja instalado"
+    # else echo
+    #      echo "Pacote $nome Necessario-> Nao instalado"
+    #      echo "Instalando Automaticamente Pacote Dialog..."
+    #      sudo apt-get install $nome
+    # fi    
+
+    # pacote=$(dpkg --get-selections | grep "jq" )
+    # sleep 2
+    # if [ -n "$pacote" ] ;
+    # then echo
+    #      echo "Pacote $nome ja instalado"
+    # else echo
+    #      echo "Pacote $nome Necessario-> Nao instalado"
+    #      echo "Instalando Automaticamente Pacote JQ..."
+    #      sudo apt-get install $nome
+    # fi    
 }
 #----------------------------------------------------------
+
+function getIdToken(){
+idToken=$(curl --location --request POST 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBLUauRW0Q_QJGPzYjPOeQIAPsZKqNtIIY' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"email":"erp@serquip-al.com",
+	"password":"serquip2020",
+	"returnSecureToken": "true",
+}'  | jq -r '.idToken')
+
+echo "$idToken"    
+}
 
 #----------------------------------------------------------
 function excluirAgendamentosRotasUsuariosERP(){
@@ -169,4 +193,9 @@ function infoUsuariosCriados(){
 }
 #----------------------------------------------------------
 
-verificaPacoteDialog && excluirAgendamentosRotasUsuariosERP && inserirUsuariosERP && infoUsuariosCriados
+verificaPacoteDialog
+idToken=$(getIdToken)
+excluirAgendamentosRotasUsuariosERP && inserirUsuariosERP && infoUsuariosCriados
+echo "=========================="
+echo "IdToken = $idToken"
+echo "=========================="
