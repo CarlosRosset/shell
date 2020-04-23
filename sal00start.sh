@@ -199,3 +199,4 @@ excluirAgendamentosRotasUsuariosERP && inserirUsuariosERP && infoUsuariosCriados
 echo "=========================="
 echo "IdToken = $idToken"
 echo "=========================="
+
