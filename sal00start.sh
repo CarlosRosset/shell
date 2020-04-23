@@ -17,27 +17,6 @@ function verificaPacoteDialog() {
 #----------------------------------------------------------
 
 #----------------------------------------------------------
-function apresentacao() {
-    tms=$1
-    if [ -z "${tms}" ]; then { tms=1; } fi
-    clear
-    msg =""
-    msg+="╔══════════════════════════════════════════════════════════╗ \n"
-    msg+="║                       Bem vindo                          ║ \n"
-    msg+="╠══════════════════════════════════════════════════════════╣ \n"
-    msg+="║                     ____   ____ _                        ║ \n"
-    msg+="║                    |___ \ / ___| |                       ║ \n"
-    msg+="║                      __) | |   | |                       ║ \n"
-    msg+="║                     / __/| |___| |___                    ║ \n"
-    msg+="║                    |_____|\____|_____|                   ║ \n"
-    msg+="║                                                          ║ \n"
-    msg+="╚══════════════════════════════════════════════════════════╝ \n"
-    dialog --sleep ${tms} --backtitle "Carlos Rossset - carlosrosset@gmail.com" --infobox "${msg}" 12 64
-    clear
-}
-#----------------------------------------------------------
-
-#----------------------------------------------------------
 function excluirAgendamentosRotasUsuariosERP(){
     rstDel1=$( curl --location --request DELETE 'https://serquip-al.firebaseio.com/app/agendamento/al/.json' )
     sleep 3
@@ -64,7 +43,6 @@ function inserirUsuariosERP(){
                 "coletor"
             ]
         },
-
         "UID_ERP_AL_CO02": {
             "cpf": 22222222222,
             "email": "condutor2@serquip.app",
@@ -78,7 +56,6 @@ function inserirUsuariosERP(){
                 "coletor"
             ]
         },
-
         "UID_ERP_AL_CO03": {
             "cpf": 33333333333,
             "email": "condutor3@serquip.app",
@@ -92,7 +69,6 @@ function inserirUsuariosERP(){
                 "coletor"
             ]
         },
-
         "UID_ERP_AL_CL01": {
             "cpf": 11111111111,
             "email": "cliente1@serquip.app",
@@ -106,7 +82,6 @@ function inserirUsuariosERP(){
                 "cliente"
             ]
         },
-
         "UID_ERP_AL_CL02": {
             "cpf": 22222222222,
             "email": "cliente2@serquip.app",
@@ -120,7 +95,6 @@ function inserirUsuariosERP(){
                 "cliente"
             ]
         },
-
         "UID_ERP_AL_CL03": {
             "cpf": 33333333333,
             "email": "cliente3@serquip.app",
@@ -134,7 +108,6 @@ function inserirUsuariosERP(){
                 "cliente"
             ]
         },
-
         "UID_ERP_AL_ADM01": {
             "cpf": 11111111111,
             "email": "administrador@serquip.app",
@@ -150,7 +123,6 @@ function inserirUsuariosERP(){
                 "coletor"
             ]
         },    
-
         "UID_ERP_AL_RO01": {
             "cpf": 11111111111,
             "email": "root@serquip.app",
@@ -168,7 +140,6 @@ function inserirUsuariosERP(){
                 "vendedor"
             ]
         }       
-
     }' )
     
     sleep 4
@@ -193,14 +164,9 @@ function infoUsuariosCriados(){
     msg+="║        8. root@serquip.app => 11111111111                ║ \n"
     msg+="║                                                          ║ \n"    
     msg+="╚══════════════════════════════════════════════════════════╝ \n"
-    dialog --sleep ${tms} --backtitle "Carlos Rossset - carlosrosset@gmail.com" --infobox "${msg}" 12 64
+    dialog --backtitle "Carlos Rossset - carlosrosset@gmail.com" --infobox "${msg}" 16 64
 
 }
 #----------------------------------------------------------
 
-
-# verificaPacoteDialog
-# apresentacao 2
-# excluirAgendamentosRotasUsuariosERP
-# inserirUsuariosERP
-infoUsuariosCriados
+verificaPacoteDialog && excluirAgendamentosRotasUsuariosERP && inserirUsuariosERP && infoUsuariosCriados
